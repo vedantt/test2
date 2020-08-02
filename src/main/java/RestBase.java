@@ -18,10 +18,14 @@ public class RestBase {
     private String url;
     private RequestSpecification request;
     private Response response;
-
+    private Map<String, Object> headers;
 
     public RestBase() {
+        headers = new HashMap<String, Object>();
+        headers.put("Content-Type", "application/json");
         request = given();
+        request.accept("application/json");
+        request.headers(headers);
     }
 
     public RestBase(String url) {
@@ -59,7 +63,8 @@ public class RestBase {
     public void post(String payload) {
 
         System.out.println(url);
-        response = request.relaxedHTTPSValidation().body(payload).post(url);
+        response = request.body(payload).post(url);
+        System.out.println(response.asString());
     }
 
 

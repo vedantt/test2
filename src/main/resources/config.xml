@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ConfigApiTests">
+    <parameter name="scheme" value="http"/>
+    <parameter name="host" value="13.126.80.194"/>
+    <parameter name="port" value="8080"/>
+
+    <!--test name="check" preserve-order="true">
+        <classes>
+            <class
+                    name="UserDetailsTest"/>
+
+        </classes>
+    </test-->
+
+
+    <test name="parallel" preserve-order="true" parallel="true">
+        <classes>
+            <class
+                    name="UserDetailsParallelTest"/>
+        </classes>
+    </test>
+
+
+</suite>
